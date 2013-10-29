@@ -28,7 +28,8 @@
     "soupselect": "0.2.0",
     "url": "",
     "querystring": "",
-    "gitio": "1.0.1"
+    "gitio": "1.0.1",
+    "xml2js": "0.1.14"
   },
   "engines": {
     "node": ">= 0.8.x",
