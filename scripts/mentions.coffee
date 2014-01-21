@@ -15,7 +15,7 @@
 
 activated_users =
   Shanti: true
-  Yves: true
+  #Yves: true
 
 module.exports = (robot)->
   robot.brain.userForMentionName = (nick)->
@@ -28,3 +28,9 @@ module.exports = (robot)->
     if nick of activated_users
       user = robot.brain.userForMentionName nick
       message.send "#{user.name}: #{message.match[2]}" if user
+
+  robot.hear /([\w .\-]+): (.*)/, (message)->
+    name = message.match[1].trim()
+    user = robot.brain.userForName name
+    return unless user.mention_name of activated_users
+    message.send "@#{user.mention_name} #{message.match[2]}" if user
