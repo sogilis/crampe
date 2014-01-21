@@ -25,9 +25,9 @@ module.exports = (robot)->
     
   robot.hear /([\w.\-]+: )?(.*@([\w.\-]+)\b.*)/, (message)->
     nick = message.match[3].trim()
-    if nick of activated_users
-      user = robot.brain.userForMentionName nick
-      message.send "#{user.name}: #{message.match[2]}" if user
+    return unless nick of activated_users
+    user = robot.brain.userForMentionName nick
+    message.send "#{user.name}: #{message.match[2]}" if user
 
   robot.hear /([\w .\-]+): (.*)/, (message)->
     name = message.match[1].trim()
