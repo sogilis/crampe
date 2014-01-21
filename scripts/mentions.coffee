@@ -8,7 +8,6 @@
 #   None
 #
 # Commands:
-#   None
 #
 # Author:
 #   Eunomie
@@ -32,5 +31,5 @@ module.exports = (robot)->
   robot.hear /([\w .\-]+): (.*)/, (message)->
     name = message.match[1].trim()
     user = robot.brain.userForName name
-    return unless user.mention_name of activated_users
+    return unless message.envelope.user.mention_name of activated_users
     message.send "@#{user.mention_name} #{message.match[2]}" if user
