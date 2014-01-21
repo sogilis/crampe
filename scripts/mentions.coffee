@@ -15,12 +15,16 @@
 
 activated_users =
   Shanti: true
+  Yves: true
 
 module.exports = (robot)->
+  robot.brain.userForMentionName = (nick)->
+    for k of (@data.users or { })
+      return @data.users[k] if @data.users[k]['mention_name'] is nick
+    null
+    
   robot.hear /([\w.\-]+: )?(.*@([\w.\-]+)\b.*)/, (message)->
     nick = message.match[3].trim()
     if nick of activated_users
-      users = robot.brain.usersForFuzzyName nick
-      if users.length is 1
-        user = users[0]
-        message.send "#{user.name}: #{message.match[2]}"
+      user = robot.brain.userForMentionName nick
+      message.send "#{user.name}: #{message.match[2]}" if user
