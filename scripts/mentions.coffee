@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   @... - "Full Name:"
+#   None
 #
 # Author:
 #   Eunomie
