@@ -18,6 +18,7 @@ module.exports = (robot) ->
 
   robot.respond /hoff bomb( (\d+))?/i, (msg) ->
     count = msg.match[2] || 5
+    count = 8 if count > 8
     bombMe msg, 'hasselhoff', count
 
 imageMe = (msg, query) ->
