@@ -89,10 +89,12 @@ say_where_to_eat = (place, msg)->
   res.push("Vous pouvez vous faire livrer") if place.livraison
   res.push("Vous pouvez emporter") if place.emporte
   res.push("Vous pouvez manger sur place") if place.surplace
+  maps = get_map place.addr
+  res.push maps[0]
   msg.send res.join('\n')
-  send_map place.addr, msg
+  msg.send maps[1]
 
-send_map = (location, msg)->
+get_map = (location)->
   mapType  = "roadmap"
   mapUrl   = "http://maps.google.com/maps/api/staticmap?markers=" +
               escape(location) +
@@ -105,4 +107,4 @@ send_map = (location, msg)->
             "&hl=en&sll=37.0625,-95.677068&sspn=73.579623,100.371094&vpsrc=0&hnear=" +
             escape(location) +
             "&t=m&z=11"
-  msg.send "#{url}\n#{mapUrl}"
+  [url, mapUrl]
