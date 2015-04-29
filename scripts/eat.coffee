@@ -24,7 +24,7 @@ restaurants = [
   ,
    name: "Sushi one Grenoble"
    food_type: "sushi"
-   addr: "28 Avenue Félix Viallet 38000 Grenoble"
+   addr: "28 Avenue Felix Viallet 38000 Grenoble"
    livraison: true
    emporte: true
    surplace: false
@@ -84,11 +84,13 @@ module.exports = (robot) ->
     say_where_to_eat place, msg
 
 say_where_to_eat = (place, msg)->
-    msg.send "Vous pouvez manger au #{place.name} (#{place.food_type})"
-    msg.send "Vous pouvez vous faire livrer" if place.livraison
-    msg.send "Vous pouvez emporter" if place.emporte
-    msg.send "Vous pouvez manger sur place" if place.surplace
-    send_map place.addr, msg
+  res = []
+  res.push "Vous pouvez manger au #{place.name} (#{place.food_type})"
+  res.push("Vous pouvez vous faire livrer") if place.livraison
+  res.push("Vous pouvez emporter") if place.emporte
+  res.push("Vous pouvez manger sur place") if place.surplace
+  msg.send res.join('\n')
+  send_map place.addr, msg
 
 send_map = (location, msg)->
   mapType  = "roadmap"
@@ -103,5 +105,4 @@ send_map = (location, msg)->
             "&hl=en&sll=37.0625,-95.677068&sspn=73.579623,100.371094&vpsrc=0&hnear=" +
             escape(location) +
             "&t=m&z=11"
-  msg.send mapUrl
-  msg.send url
+  msg.send "#{url} (#{mapUrl})"
