@@ -14,4 +14,4 @@
 
 module.exports = (robot)->
   robot.hear /\(tgm\)/, (message) ->
-    message.send 'https://thomashunter.name/batman-comic/gen/20150122093349_54c10a4d71952.jpg'
+    message.send 'https://thomashunter.name/batman-comic/gen/20150429054047_5540a71f3aca3.jpg'
