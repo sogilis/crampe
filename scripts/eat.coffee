@@ -105,4 +105,4 @@ send_map = (location, msg)->
             "&hl=en&sll=37.0625,-95.677068&sspn=73.579623,100.371094&vpsrc=0&hnear=" +
             escape(location) +
             "&t=m&z=11"
-  msg.send "#{url} (#{mapUrl})"
+  msg.send "#{url}\n#{mapUrl}"
