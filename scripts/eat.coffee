@@ -88,7 +88,7 @@ say_where_to_eat = (place, msg)->
     msg.send "Vous pouvez vous faire livrer" if place.livraison
     msg.send "Vous pouvez emporter" if place.emporte
     msg.send "Vous pouvez manger sur place" if place.surplace
-    send_map place.addr, message
+    send_map place.addr, msg
 
 send_map = (location, msg)->
   mapType  = "roadmap"
