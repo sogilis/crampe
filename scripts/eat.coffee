@@ -72,11 +72,11 @@ restaurants = [
    surplace: true
 ]
 
-module.exports = (robot)->
-  robot.hear /o[ùu] manger ce midi ?/i, (msg)->
+module.exports = (robot) ->
+  robot.respond /o[ùu] manger ce midi ?/i, (msg) ->
     place = msg.random restaurants
     say_where_to_eat place, msg
-  robot.hear /o[ùu] manger (.+) ce midi ?/i, (msg)->
+  robot.respond /o[ùu] manger (.+) ce midi ?/i, (msg) ->
     type = msg.match[1]
     places = []
     places.push(place) for place in restaurants when place.food_type is type
