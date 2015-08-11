@@ -14,8 +14,8 @@
 
 module.exports = (robot)->
   robot.hear /\(tgm\)/, (message) ->
-    message.send 'https://thomashunter.name/batman-comic/gen/20150429054047_5540a71f3aca3.jpg'
+    message.send 'http://i.imgur.com/v8rt6Pq.jpg'
   robot.hear /prout/i, (msg) ->
   	name = msg.message.user.name
   	return unless name.match(/eric/i)
-  	msg.send 'https://thomashunter.name/batman-comic/gen/20150429054047_5540a71f3aca3.jpg'
+  	msg.send 'http://i.imgur.com/v8rt6Pq.jpg'
