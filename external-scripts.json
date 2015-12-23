@@ -8,5 +8,10 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit"
+  "hubot-shipit",
+  "hubot-codinglove",
+  "hubot-payetashnek",
+  "hubot-etudesalacon",
+  "hubot-suisjenormal",
+  "hubot-dtc"
 ]
